@@ -9,12 +9,15 @@
 	let name
 	let isDeserve = null
 
+	const authorize = () => {
+        isDeserve = name === 'Thor' || name === 'Steve Rogers'
+    }
+
+    // Additional logic for letconst gurus 😋
+
 	$: isInputDisabled = isDeserve
 	$: isCulminationAvailable = name && isNull(isDeserve)
-	
-	const authorize = () => {
-		isDeserve = name === 'Thor' || name === 'Steve Rogers'
-	}
+
 	const tryAgain = () => {
 		isDeserve = null
 		name = ''
@@ -25,11 +28,11 @@
 <HolderName disabled={isInputDisabled} bind:value={name} />
 
 {#if isCulminationAvailable}
-	<Culmination name={name} authorize={authorize}/>
+	<Culmination name={name} authorize={authorize} />
 {/if}
 
 {#if isDeserve}
-	<Congratulations name={name}/>
+	<Congratulations name={name} />
 {/if}
 
 {#if isFalse(isDeserve)}

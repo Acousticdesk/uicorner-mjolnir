@@ -4,4 +4,10 @@
 </script>
 
 <p>Hi, {name}! So you think you deserve to hold Mjolnir! Hahahaa!</p>
-<button type="button" on:click={authorize}>Test me!</button>
+
+<button
+    type="button"
+    on:click={authorize}
+>
+    Test me!
+</button>
